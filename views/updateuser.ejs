@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>update</h1>
+    <form id="updateForm">
+        <input type="text" id="name" name="name" placeholder="Enter Name" value="<%=user.name%>">
+        <input type="email" id="email" name="email" placeholder="Enter Email" value="<%=user.email%>" >
+        
+        <button type="submit">Update</button>
+    </form>
+    <div id="message"></div>
+    <button><a href="/dashboard">dashboard</a></button>
+    <script>
+        document.getElementById('updateForm').addEventListener('submit', async (e) => {
+        e.preventDefault();            
+        const id = '<%=_id%>';
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+    
+    try {
+        const response = await fetch(`/updateuser/${id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ name, email})
+        });
+
+        const data = await response.json();
+
+        if (response.ok) {
+            document.getElementById('message').innerText = data.message;
+        } else {
+            document.getElementById('message').innerText = data.message;
+        }
+    } catch (error) {
+        document.getElementById('message').innerText = 'An error occurred. Please try again.';
+    }
+});
+
+    </script>
+</body>
+</html>

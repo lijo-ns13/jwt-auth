@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+
+        nav{
+
+            padding:20px;
+            background-color: rgb(144, 187, 225);
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
+            column-gap: 20px;
+
+        }
+        .logout-btn{
+
+            appearance: button;
+            backface-visibility: hidden;
+            background-color: #405cf5;
+            border-radius: 6px;
+            border-width: 0;
+            box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset,rgba(50, 50, 93, .1) 0 2px 5px 0,rgba(0, 0, 0, .07) 0 1px 1px 0;
+            box-sizing: border-box;
+            color: #fff;
+            cursor: pointer;
+            font-family: -apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Ubuntu,sans-serif;
+            font-size: 100%;
+            height: 44px;
+            line-height: 1.15;
+            margin: 12px 0 0;
+            outline: none;
+            overflow: hidden;
+            padding: 0 25px;
+            position: relative;
+            text-align: center;
+            text-transform: none;
+            transform: translateZ(0);
+            transition: all .2s,box-shadow .08s ease-in;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            width: 100%;
+        }
+        .logout-btn:disabled {
+          cursor: default;
+        }
+
+        .logout-btn:focus {
+          box-shadow: rgba(50, 50, 93, .1) 0 0 0 1px inset, rgba(50, 50, 93, .2) 0 6px 15px 0, rgba(0, 0, 0, .1) 0 2px 2px 0, rgba(50, 151, 211, .3) 0 0 0 4px;
+        }      
+        .adduser {
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid #1A1A1A;
+  border-radius: 15px;
+  box-sizing: border-box;
+  color: #3B3B3B;
+  cursor: pointer;
+  display: inline-block;
+  font-family: Roobert,-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+  font-size: 16px;
+  font-weight: 600;
+  line-height: normal;
+  margin: 0;
+  min-height: 60px;
+  min-width: 0;
+  outline: none;
+  padding: 16px 24px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 300ms cubic-bezier(.23, 1, 0.32, 1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+  will-change: transform;
+}
+
+.adduser:disabled {
+  pointer-events: none;
+}
+
+.adduser:hover {
+  color: #fff;
+  background-color: #1A1A1A;
+  box-shadow: rgba(0, 0, 0, 0.25) 0 8px 15px;
+  transform: translateY(-2px);
+}
+
+.adduser:active {
+  box-shadow: none;
+  transform: translateY(0);
+}
+.inner{
+    padding:50px
+}
+.users{
+    border:1px solid green;
+
+}
+.user{
+    /* border:1px solid black; */
+    display: flex;
+    justify-content: space-around;
+    padding:10px;
+
+}
+.update-btn {
+  background: #39cb15;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: Mija,-apple-system,BlinkMacSystemFont,Roboto,"Roboto Slab","Droid Serif","Segoe UI",system-ui,Arial,sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 33.4929px;
+  padding: .8em 1em;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+  text-underline-offset: 1px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+ 
+  word-break: break-word;
+  border: 0;
+}
+
+.update-btn:active,
+.update-btn:focus {
+  border-bottom-style: none;
+  border-color: #dadada;
+  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+  outline: 0;
+}
+
+.update-btn:hover {
+  border-bottom-style: none;
+  border-color: #dadada;
+}
+.delete-btn {
+  background: #e62143;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-family: Mija,-apple-system,BlinkMacSystemFont,Roboto,"Roboto Slab","Droid Serif","Segoe UI",system-ui,Arial,sans-serif;
+  font-size: 1.15em;
+  font-weight: 700;
+  justify-content: center;
+  line-height: 33.4929px;
+  padding: .8em 1em;
+  text-align: center;
+  text-decoration: none;
+  text-decoration-skip-ink: auto;
+  text-shadow: rgba(0, 0, 0, .3) 1px 1px 1px;
+  text-underline-offset: 1px;
+  transition: all .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  
+  word-break: break-word;
+  border: 0;
+}
+
+.delete-btn:active,
+.delete-btn:focus {
+  border-bottom-style: none;
+  border-color: #dadada;
+  box-shadow: rgba(0, 0, 0, .3) 0 3px 3px inset;
+  outline: 0;
+}
+
+.delete-btn:hover {
+  border-bottom-style: none;
+  border-color: #dadada;
+}
+.username{
+    
+    font: normal normal 27px/1.9 "Brush Script";
+    letter-spacing: 4px;
+
+}
+.useremail{
+    
+    font: normal normal 27px/1.9 "Brush Script";
+    letter-spacing: 4px;
+
+}
+.email{
+    font: normal bold 30px/1.2 "proxima-nova";
+    letter-spacing: 1px;
+    
+}
+
+    
+    </style>
+</head>
+<body>
+    <nav>
+        <h2 class="email">ADMIN DASHBOARD</h2>
+        <div><button class="logout-btn"><a href="/logout">Logout</a></button></div>
+    </nav>
+
+    
+    <div class="inner">
+        <button class="adduser"><a href="/adduser">Add User</a></button>
+    </div>
+    <% if(users.length>0){%>
+        <div class="users">
+          
+            <% for(const user of users){%>
+            <div class="user">
+                <h3 class="username"><%=user.name%></h3>
+                <h3 class="useremail"><%=user.email%></h3>
+                <!-- <div><button type="submit" class="update-btn"><a href="/updateuser/<%=user._id%>">update</a></button></div> -->
+                 <a href="/updateuser/<%=user._id%>"><button type="submit" class="update-btn">update</button></a>
+                 <div>
+                  <form id="deleteForm" action="/deleteuser/<%= user._id %>" method="post">
+                    <button type="submit" class="delete-btn" onclick="return confirmDelete()">Delete</button>
+                  </form>
+                </div>
+                
+              </div>
+            <%}%>
+            
+        </div>
+        <% }else{%>
+          <p>No users found</p>
+        <%}%>
+    
+    <form action="/search" method="get">
+        <input type="text" name="query" placeholder="Search users by name or email">
+        <button type="submit">Search</button>
+    </form>
+
+    <script>
+      function confirmDelete() {
+        const result = window.confirm('Are you sure you want to delete this user?');
+        return result; // If the user clicks "OK", result is true, and the form is submitted. If "Cancel", it's false, and the form submission is prevented.
+      }
+    </script>
+</body>
+</html>
+

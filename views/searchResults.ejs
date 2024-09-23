@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Search Results</h1>
+<ul>
+    <!-- <% users.forEach(user => { %>
+        <li><%= user.name %> - <%= user.email %></li>
+    <% }) %> -->
+    <%if(users.length>0){%>
+
+        <% for(const user of users){ %>
+            <li><%= user.name %> - <%= user.email %></li>
+        <% } %>
+    
+    <%}else{%>
+        <h1>no users found</h1>
+    <%}%>
+</ul>
+<a href="/dashboard">Back to Dashboard</a>
+</body>
+</html>
